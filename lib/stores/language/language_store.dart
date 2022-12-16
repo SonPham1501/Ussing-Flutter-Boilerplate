@@ -75,9 +75,7 @@ abstract class _LanguageStore with Store {
   // general:-------------------------------------------------------------------
   void init() async {
     // getting current language from shared preference
-    if(_repository.currentLanguage != null) {
-      _locale = _repository.currentLanguage!;
-    }
+    _locale = await _repository.currentLanguage ?? 'en';
   }
 
   // dispose:-------------------------------------------------------------------

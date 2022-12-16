@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:base_utils/base_utils.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sembast/sembast.dart';
 import 'package:sembast/sembast_io.dart';
@@ -19,6 +20,13 @@ abstract class LocalModule {
   /// Calling it multiple times will return the same instance.
   static Future<SharedPreferences> provideSharedPreferences() {
     return SharedPreferences.getInstance();
+  }
+
+  /// A singleton secure storage provider
+  ///
+  /// Calling it multiple times will return the same instance
+  static Future<void> provideSecureStorage() {
+    return SecureStorageUtil.init();
   }
 
   /// A singleton database provider.

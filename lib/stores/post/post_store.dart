@@ -19,11 +19,10 @@ abstract class _PostStore with Store {
   final ErrorStore errorStore = ErrorStore();
 
   // constructor:---------------------------------------------------------------
-  _PostStore(Repository repository) : _repository = repository;
+  _PostStore(this._repository);
 
   // store variables:-----------------------------------------------------------
-  static ObservableFuture<PostList?> emptyPostResponse =
-      ObservableFuture.value(null);
+  static ObservableFuture<PostList?> emptyPostResponse = ObservableFuture.value(null);
 
   @observable
   ObservableFuture<PostList?> fetchPostsFuture = ObservableFuture<PostList?>(emptyPostResponse);

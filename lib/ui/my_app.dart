@@ -23,10 +23,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   // Create your store as a final variable in a base Widget. This works better
   // with Hot Reload than creating it directly in the `build` function.
-  final ThemeStore _themeStore = ThemeStore(getIt<Repository>());
-  final PostStore _postStore = PostStore(getIt<Repository>());
-  final LanguageStore _languageStore = LanguageStore(getIt<Repository>());
-  final UserStore _userStore = UserStore(getIt<Repository>());
+  final ThemeStore _themeStore = getIt<ThemeStore>();
+  final PostStore _postStore = getIt<PostStore>();
+  final LanguageStore _languageStore = getIt<LanguageStore>();
+  final UserStore _userStore = getIt<UserStore>();
 
   final Environment env;
 

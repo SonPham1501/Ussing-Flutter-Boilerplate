@@ -28,8 +28,7 @@ abstract class _ThemeStore with Store {
   bool get darkMode => _darkMode;
 
   // constructor:---------------------------------------------------------------
-  _ThemeStore(Repository repository)
-      : _repository = repository {
+  _ThemeStore(this._repository) {
     init();
   }
 
@@ -42,7 +41,7 @@ abstract class _ThemeStore with Store {
 
   // general methods:-----------------------------------------------------------
   Future init() async {
-    _darkMode = _repository.isDarkMode;
+    _darkMode = await _repository.isDarkMode;
   }
 
   bool isPlatformDark(BuildContext context) =>

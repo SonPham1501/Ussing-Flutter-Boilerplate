@@ -1,40 +1,23 @@
 import 'dart:async';
 
+import 'package:base_https/base_https.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../models/post/post_list.dart';
 import '../../constants/endpoints.dart';
-import '../../dio_client.dart';
-import '../../rest_client.dart';
 
 class PostApi {
-  // dio instance
-  final DioClient _dioClient;
-
-  // rest-client instance
-  final RestClient _restClient;
-
-  // injecting dio instance
-  PostApi(this._dioClient, this._restClient);
 
   /// Returns list of post in response
   Future<PostList> getPosts() async {
     try {
-      final res = await _dioClient.get(Endpoints.getPosts);
-      return PostList.fromJson(res);
+      final params = <String, dynamic>{};
+      final res = await HttpHelper.requestApi(Endpoints.getPosts, params, HttpMethod.get, false);
+      return PostList.fromJson(res.data);
     } catch (e) {
       debugPrint(e.toString());
       rethrow;
     }
   }
-
-/// sample api call with default rest client
-//  Future<PostsList> getPosts() {
-//
-//    return _restClient
-//        .get(Endpoints.getPosts)
-//        .then((dynamic res) => PostsList.fromJson(res))
-//        .catchError((error) => throw NetworkException(message: error));
-//  }
 
 }
