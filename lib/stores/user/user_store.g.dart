@@ -55,6 +55,20 @@ mixin _$UserStore on _UserStore, Store {
     return _$loginAsyncAction.run(() => super.login(email, password));
   }
 
+  late final _$_UserStoreActionController =
+      ActionController(name: '_UserStore', context: context);
+
+  @override
+  void dispose() {
+    final _$actionInfo =
+        _$_UserStoreActionController.startAction(name: '_UserStore.dispose');
+    try {
+      return super.dispose();
+    } finally {
+      _$_UserStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''

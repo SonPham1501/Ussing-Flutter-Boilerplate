@@ -87,6 +87,7 @@ abstract class _UserStore with Store {
   }
 
   // general methods:-----------------------------------------------------------
+  @action
   void dispose() {
     for (final d in _disposers) {
       d();
