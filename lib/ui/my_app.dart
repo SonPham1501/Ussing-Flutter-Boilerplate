@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 import '../constants/app_theme.dart';
 import '../constants/enum.dart';
 import '../constants/strings.dart';
-import '../data/repository.dart';
 import '../di/components/service_locator.dart';
 import '../stores/language/language_store.dart';
 import '../stores/post/post_store.dart';
